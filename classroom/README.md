@@ -23,63 +23,22 @@ Replace `Profile 2` with the folder name of your school profile.
 - `>/dev/null 2>&1` hides Chrome's messages.
 - `&` runs Chrome in the background.
 
-## Install from GitHub (Omarchy / Arch)
-
-1. Download the repo:
-
-   ```bash
-   git clone https://github.com/alishanaminnnn/MiniAutomations.git
-   ```
-
-2. Go to the folder that contains the recipe:
-
-   ```bash
-   cd MiniAutomations/classroom
-   ```
-
-3. Build and install the package:
-
-   ```bash
-   makepkg -si
-   ```
-
-   Type your password when asked, then type `Y` if it asks to proceed.
-
-4. Test it:
-
-   ```bash
-   classroom
-   ```
-
-Chrome should open Google Classroom in the profile named in the script.
-
-## Keyboard shortcut
-
-Add this line to `~/.config/hypr/binding.lua`:
-
-```lua
-o.bind("SUPER + C", "Classroom", "alacritty -e classroom")
-```
-
-Then reload Hyprland:
+## Install (Omarchy / Arch)
 
 ```bash
-hyprctl reload
+git clone https://github.com/alishanaminnnn/MiniAutomations.git
+cd MiniAutomations/classroom
+makepkg -si
 ```
 
-If you use Ghostty instead of Alacritty, replace `alacritty` with `ghostty`.
+## Run
 
-## Updating
+Type this in the terminal:
 
-When you change `classroom.sh`:
+```bash
+classroom
+```
 
-1. Increase `pkgver` in `PKGBUILD` (for example, `1.0` to `1.1`).
-2. Commit and push the changes.
-3. Run `makepkg -si` again.
+## Change the Chrome profile
 
-## Troubleshooting
-
-- **A new empty Chrome profile opens:** The profile name is wrong. Use the folder name, not the display name.
-- **Chrome closes with the terminal:** Check that the script has `setsid` and ends with `&`.
-- **`classroom: command not found`:** Run `echo $PATH` and check that `/usr/bin` is listed. If you installed the package, run `pacman -Q classroom-launcher` to confirm it's installed.
-- **An old copy runs instead of the package:** Delete it with `rm ~/.local/bin/classroom`, then run `hash -r` or open a new terminal.
+The script uses `Profile 2`, my school profile. To use your own profile, edit `classroom.sh` and replace `Profile 2` with your profile's folder name. Then increase `pkgver` in `PKGBUILD` and run `makepkg -si` again.
