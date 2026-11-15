@@ -43,7 +43,7 @@ Added this line to `~/.config/hypr/binding.lua` if you are using arch(omarchy):
 o.bind("SUPER + C", "Classroom", "alacritty -e ~/.local/bin/classroom")
 ```
 
-Then ran:
+Then run:
 
 ```bash
 hyprctl reload
