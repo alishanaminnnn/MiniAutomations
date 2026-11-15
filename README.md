@@ -26,18 +26,18 @@ Replace `Profile 2` with the folder name of my school profile.
 
 **Setup**
 
-1. Created a `.sh` file and added the script.
+1. Created a `.sh` file and add the script given above.
 2. Made it executable:
 
    ```bash
    chmod +x classroom.sh
    ```
 
-3. Restarted Linux.
+3. Reload Linux.
 
-**Keyboard shortcut**
+**How to trigger it through Keyboard shortcut ?**
 
-Added this line to `~/.config/hypr/binding.lua`:
+Added this line to `~/.config/hypr/binding.lua` if you are using arch(omarchy):
 
 ```lua
 o.bind("SUPER + C", "Classroom", "alacritty -e ~/.local/bin/classroom")
