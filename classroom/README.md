@@ -41,4 +41,4 @@ classroom
 
 ## Change the Chrome profile
 
-The script uses `Profile 2`, my school profile. To use your own profile, edit `classroom.sh` and replace `Profile 2` with your profile's folder name. Then increase `pkgver` in `PKGBUILD` and run `makepkg -si` again.
+The script uses `Profile 2`, my school profile. To use your own profile, edit `classroom.sh` and replace `Profile 2` with your profile's folder name.
