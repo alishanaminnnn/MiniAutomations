@@ -2,7 +2,7 @@
 
 ### Classroom launcher
 
-Opens Google Classroom in my school Chrome profile. I can run it by typing `classroom` or by pressing **Super + C**.
+Opens Google Classroom in my school Chrome profile. I can run it by typing `classroom` in terminal or by pressing **Super + C**.
 
 **Files**
 
