@@ -1,19 +1,20 @@
 # Classroom launcher
 
-Opens Google Classroom in my school Chrome profile. I can run it by typing `classroom` in terminal or by pressing **Super + C**.
+Opens Google Classroom in my school Chrome profile. I can run it by typing `classroom` in the terminal or by pressing **Super + C**.
 
-**Files**
+## Files
 
-- `classroom`: the script. It lives at `~/.local/bin/classroom`.
+- `classroom.sh`: the script. The package installs it as the command `classroom` in `/usr/bin/`.
+- `PKGBUILD`: the recipe that builds and installs the package.
 
-**Script**
+## Script
 
 ```bash
 #!/bin/bash
 setsid google-chrome-stable --profile-directory="Profile 2" "https://classroom.google.com/u/0/h/st" >/dev/null 2>&1 &
 ```
 
-Replace `Profile 2` with the folder name of my school profile.
+Replace `Profile 2` with the folder name of your school profile.
 
 **What each part does**
 
@@ -22,26 +23,45 @@ Replace `Profile 2` with the folder name of my school profile.
 - `>/dev/null 2>&1` hides Chrome's messages.
 - `&` runs Chrome in the background.
 
-**Setup**
+## Install from GitHub (Omarchy / Arch)
 
-1. Created a `.sh` file and add the script given above.
-2. Made it executable:
+1. Download the repo:
 
    ```bash
-   chmod +x classroom.sh
+   git clone https://github.com/alishanaminnnn/MiniAutomations.git
    ```
 
-3. Reload Linux.
+2. Go to the folder that contains the recipe:
 
-**How to trigger it through Keyboard shortcut ?**
+   ```bash
+   cd MiniAutomations/classroom
+   ```
 
-Added this line to `~/.config/hypr/binding.lua` if you are using arch(omarchy):
+3. Build and install the package:
+
+   ```bash
+   makepkg -si
+   ```
+
+   Type your password when asked, then type `Y` if it asks to proceed.
+
+4. Test it:
+
+   ```bash
+   classroom
+   ```
+
+Chrome should open Google Classroom in the profile named in the script.
+
+## Keyboard shortcut
+
+Add this line to `~/.config/hypr/binding.lua`:
 
 ```lua
-o.bind("SUPER + C", "Classroom", "alacritty -e ~/.local/bin/classroom")
+o.bind("SUPER + C", "Classroom", "alacritty -e classroom")
 ```
 
-Then run:
+Then reload Hyprland:
 
 ```bash
 hyprctl reload
@@ -49,8 +69,17 @@ hyprctl reload
 
 If you use Ghostty instead of Alacritty, replace `alacritty` with `ghostty`.
 
-**Troubleshooting**
+## Updating
+
+When you change `classroom.sh`:
+
+1. Increase `pkgver` in `PKGBUILD` (for example, `1.0` to `1.1`).
+2. Commit and push the changes.
+3. Run `makepkg -si` again.
+
+## Troubleshooting
 
 - **A new empty Chrome profile opens:** The profile name is wrong. Use the folder name, not the display name.
 - **Chrome closes with the terminal:** Check that the script has `setsid` and ends with `&`.
-- **`classroom: command not found`:** Run `echo $PATH` and check that `~/.local/bin` is listed.
+- **`classroom: command not found`:** Run `echo $PATH` and check that `/usr/bin` is listed. If you installed the package, run `pacman -Q classroom-launcher` to confirm it's installed.
+- **An old copy runs instead of the package:** Delete it with `rm ~/.local/bin/classroom`, then run `hash -r` or open a new terminal.
