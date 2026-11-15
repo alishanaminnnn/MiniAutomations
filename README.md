@@ -1,7 +1,3 @@
-# minAutomation
-
-Personal scripts and notes for automating everyday tasks on my Linux (Omarchy) setup.
-
 ## Automations
 
 ### Classroom launcher
