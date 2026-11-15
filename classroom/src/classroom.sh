@@ -1,0 +1,1 @@
+/home/alishanamin/MiniAutomations/classroom.sh

@@ -1,0 +1,11 @@
+pkgname=classroom-launcher
+pkgver=1.0
+pkgrel=1
+pkgdesc="Opens Google Classroom in my school Chrome profile"
+arch=('any')
+source=("classroom.sh")
+sha256sums=('SKIP')
+
+package() {
+    install -Dm755 "$srcdir/classroom.sh" "$pkgdir/usr/bin/classroom"
+}
