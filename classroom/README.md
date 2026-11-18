@@ -25,11 +25,15 @@ Replace `Profile 2` with the folder name of your school profile.
 
 ## Install (Omarchy / Arch)
 
+## Install (Omarchy / Arch)
+
 ```bash
 git clone https://github.com/alishanaminnnn/MiniAutomations.git
 cd MiniAutomations/classroom
 makepkg -si
 ```
+
+After this finishes, the script is installed as `/usr/bin/classroom`, and you can run `classroom` from any terminal.
 
 ## Run
 
