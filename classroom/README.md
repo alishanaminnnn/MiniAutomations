@@ -1,5 +1,5 @@
 # "This Automation Is Useless Just Made for learning Purposes"
-# Classroom launcher
+## Classroom launcher
 
 Opens Google Classroom in my school Chrome profile. I can run it by typing `classroom` in the terminal or by pressing **Super + C**.
 
